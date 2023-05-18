@@ -19,7 +19,7 @@ namespace db_connection
 		{
 			InitializeComponent();
 			server_name_textbox.Text = ".\\SQLEXPRESS";
-			database_name_textbox.Text = "QT_DB";
+			database_name_textbox.Text = "db_connection";
 		}
 
 		private void OnConnectButtonClick(object sender, EventArgs e)

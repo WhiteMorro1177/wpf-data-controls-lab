@@ -1,11 +1,12 @@
-﻿using Word = Microsoft.Office.Interop.Word;
-using System;
+﻿using System;
 using System.Data;
 using System.IO;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Word;
 using System.Linq;
 using System.Diagnostics;
+using Aspose.Words;
+using Word = Microsoft.Office.Interop.Word;
+using Microsoft.Office.Interop.Word;
 
 namespace db_connection
 {
@@ -19,7 +20,7 @@ namespace db_connection
 		public SaveDialog(System.Data.DataTable data_to_save)
 		{
 			InitializeComponent();
-			open_file_dialog.InitialDirectory = "D:\\";
+			open_file_dialog.InitialDirectory = "D:\\save_tests\\";
 			open_file_dialog.FileName = Config.last_file_path ?? "";
 
 			Data = data_to_save;
@@ -49,66 +50,90 @@ namespace db_connection
 
 		private void OnSaveWordButtonClicked(object sender, EventArgs e)
 		{
+			/*
+			// create document and its builder
+			Document doc = new Document();
+			DocumentBuilder builder = new DocumentBuilder(doc);
+
+			Font header_font = builder.Font;
+			header_font.Size = 24;
+
+			builder.Writeln("Отчёт");
+			header_font.Size = 12;
+
+			builder.StartTable();
+			foreach (DataRow row in Data.Rows)
+			{
+				foreach (object cell in row.ItemArray)
+				{
+					builder.InsertCell();
+					builder.Write(cell.ToString());
+				}
+				builder.EndRow();
+			}
+			builder.EndTable();
+
+			try
+			{
+				doc.Save(file_path_textbox.Text);
+				MessageBox.Show("Your document was sucsessfully saved");
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Cannot save document. Error: " + ex.Message);
+			}
+			 */
+			
 			object missing = System.Reflection.Missing.Value;
 			Word.Application word_app =
 				new Word.Application();
-			Document word_document =
+			Word.Document word_document =
 				word_app.Documents.Add(missing, missing, missing, missing);
 
 			Table data = word_document.Tables.Add
 				(
 					word_document.Range(),
-					Data.Rows.Count,
+					Data.Rows.Count + 1,
 					Data.Columns.Count,
 					missing,
 					missing
 				);
+			data.Borders.Enable = 1;
 
 			foreach (Row row in data.Rows)
 			{
-                foreach (Cell cell in row.Cells)
-                {
+				foreach (Cell cell in row.Cells)
+				{
 					//Header row  
 					if (cell.RowIndex == 1)
 					{
-						cell.Range.Text = "Column " + cell.ColumnIndex.ToString();
+						cell.Range.Text = Data.Columns[cell.ColumnIndex - 1].ColumnName;
 						cell.Range.Font.Bold = 1;
-						//other format properties goes here  
-						cell.Range.Font.Name = "verdana";
-						cell.Range.Font.Size = 10;
-						//cell.Range.Font.ColorIndex = WdColorIndex.wdGray25;                              
-						cell.Shading.BackgroundPatternColor = WdColor.wdColorGray25;
-						//Center alignment for the Header cells  
-						cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-						cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-
 					}
-					//Data row  
-					else
+					else //Data row  
 					{
-						object[] data_cell = Data.Rows[row.Index].ItemArray;
+						object[] data_cell = Data.Rows[row.Index - 2].ItemArray;
 						cell.Range.Text = data_cell[cell.ColumnIndex - 1].ToString();
 					}
 				}
-            }
-
-
-			// save document
-
-			try
-			{
-				word_document.SaveAs2(file_path_textbox.Text);
-				word_document.Close();
-				word_document = null;
-
-				word_app.Quit();
-				word_app = null;
-			} catch (Exception ex)
-			{
-				MessageBox.Show("Cannot save document. Error: " + ex.Message);
 			}
 
 
+			// save document
+			try
+			{
+				word_document.SaveAs2(file_path_textbox.Text);
+				word_document.Close(missing, missing, missing);
+				word_document = null;
+				word_app.Quit(missing, missing, missing);
+				word_app = null;
+				MessageBox.Show("Your document was sucsessfully saved");
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Cannot save document. Error: " + ex.Message);
+			}
+			Close();
 		}
 
 		private void OnSavePdfButtonClicked(object sender, EventArgs e)
