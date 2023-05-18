@@ -87,6 +87,12 @@ namespace db_connection
 			SqlDataAdapter adapter = new SqlDataAdapter(select_cmd);
 			DataTable current_table = new DataTable();
 
+			adapter.Fill(current_table);
+
+			Debug.WriteLine($"Rows: {current_table.Rows.Count}");
+			Debug.WriteLine($"Columns: {current_table.Columns.Count}");
+
+
 			new SaveDialog(current_table).ShowDialog();
 		}
 	}

@@ -38,3 +38,17 @@ C:\Users\jackf\source\repos\wpf-data-controls-lab-master\db_connection\obj\Debug
 C:\Users\jackf\source\repos\wpf-data-controls-lab-master\db_connection\obj\Debug\db_connection.csproj.CoreCompileInputs.cache
 C:\Users\jackf\source\repos\wpf-data-controls-lab-master\db_connection\obj\Debug\db_connection.exe
 C:\Users\jackf\source\repos\wpf-data-controls-lab-master\db_connection\obj\Debug\db_connection.pdb
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\bin\Debug\db_connection.exe.config
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\bin\Debug\db_connection.exe
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\bin\Debug\db_connection.pdb
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.csproj.AssemblyReference.cache
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.csproj.SuggestedBindingRedirects.cache
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.AddDialog.resources
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.ConnectionDialog.resources
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.DBConnection.resources
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.SaveDialog.resources
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.Properties.Resources.resources
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.csproj.GenerateResource.cache
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.csproj.CoreCompileInputs.cache
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.exe
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.pdb
