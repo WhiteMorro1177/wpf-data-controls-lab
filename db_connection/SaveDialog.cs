@@ -4,9 +4,10 @@ using System.IO;
 using System.Windows.Forms;
 using System.Linq;
 using System.Diagnostics;
-using Aspose.Words;
 using Word = Microsoft.Office.Interop.Word;
 using Microsoft.Office.Interop.Word;
+using PdfConfig = iTextSharp.text;
+using PdfElements = iTextSharp.text.pdf;
 
 namespace db_connection
 {
@@ -50,40 +51,6 @@ namespace db_connection
 
 		private void OnSaveWordButtonClicked(object sender, EventArgs e)
 		{
-			/*
-			// create document and its builder
-			Document doc = new Document();
-			DocumentBuilder builder = new DocumentBuilder(doc);
-
-			Font header_font = builder.Font;
-			header_font.Size = 24;
-
-			builder.Writeln("Отчёт");
-			header_font.Size = 12;
-
-			builder.StartTable();
-			foreach (DataRow row in Data.Rows)
-			{
-				foreach (object cell in row.ItemArray)
-				{
-					builder.InsertCell();
-					builder.Write(cell.ToString());
-				}
-				builder.EndRow();
-			}
-			builder.EndTable();
-
-			try
-			{
-				doc.Save(file_path_textbox.Text);
-				MessageBox.Show("Your document was sucsessfully saved");
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("Cannot save document. Error: " + ex.Message);
-			}
-			 */
-			
 			object missing = System.Reflection.Missing.Value;
 			Word.Application word_app =
 				new Word.Application();
@@ -138,7 +105,18 @@ namespace db_connection
 
 		private void OnSavePdfButtonClicked(object sender, EventArgs e)
 		{
+			PdfConfig.Document doc = new PdfConfig.Document(PdfConfig.PageSize.A4);
 
+			using (FileStream fs = new FileStream(file_path_textbox.Text, FileMode.Create))
+			{
+				var pdf_writer = PdfElements.PdfWriter.GetInstance(doc, fs);
+
+				PdfElements.PdfPTable data = new PdfElements.PdfPTable(Data.Columns.Count + 1);
+
+				
+				doc.Close();
+				pdf_writer.Close();
+			}
 		}
 
 

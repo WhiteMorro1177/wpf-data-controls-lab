@@ -33,11 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.Words, Version=23.5.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aspose.Words.23.5.0\lib\net461\Aspose.Words.dll</HintPath>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="Aspose.Words.Pdf2Word, Version=23.5.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aspose.Words.23.5.0\lib\net461\Aspose.Words.Pdf2Word.dll</HintPath>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
@@ -75,6 +75,12 @@
     <Compile Include="DBConnection.Designer.cs">
       <DependentUpon>DBConnection.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModifyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyDialog.Designer.cs">
+      <DependentUpon>ModifyDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="SaveDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DBConnection.resx">
       <DependentUpon>DBConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyDialog.resx">
+      <DependentUpon>ModifyDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SaveDialog.resx">
       <DependentUpon>SaveDialog.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iTextSharp.text;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -94,6 +95,25 @@ namespace db_connection
 
 
 			new SaveDialog(current_table).ShowDialog();
+		}
+
+		private void CallModifyDialog(object sender, EventArgs e)
+		{
+			List<string> selected_row = new List<string> { id_text_box.Text, name_text_box.Text, category_text_box.Text };
+			
+			new ModifyDialog(selected_row).ShowDialog();
+
+			select_button.PerformClick();
+		}
+
+		private void OnDeleteRecord(object sender, EventArgs e)
+		{
+			SqlCommand delete_cmd = new SqlCommand($"delete from product where id = {int.Parse(id_text_box.Text)}", Config.connection);
+
+			if (delete_cmd.ExecuteNonQuery() != 1)
+				throw new Exception("Error while executing delete command");
+
+			select_button.PerformClick();
 		}
 	}
 }

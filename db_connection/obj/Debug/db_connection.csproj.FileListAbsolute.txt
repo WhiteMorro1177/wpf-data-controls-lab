@@ -52,7 +52,8 @@ C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_con
 C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.csproj.CoreCompileInputs.cache
 C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.exe
 C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.pdb
-C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\bin\Debug\Aspose.Words.dll
-C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\bin\Debug\Aspose.Words.Pdf2Word.dll
-C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\bin\Debug\Aspose.Words.xml
 C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.csproj.CopyComplete
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\bin\Debug\itextsharp.dll
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\bin\Debug\itextsharp.xml
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.ModifyDialog.resources

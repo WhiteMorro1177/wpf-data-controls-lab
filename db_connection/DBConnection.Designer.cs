@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.connections_tool_strip_menu_item = new System.Windows.Forms.ToolStripMenuItem();
 			this.connect_menu_item = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,8 +44,12 @@
 			this.update_button = new System.Windows.Forms.Button();
 			this.delete_button = new System.Windows.Forms.Button();
 			this.save_button = new System.Windows.Forms.Button();
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.modifyRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.deleteRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.data_grid_view)).BeginInit();
+			this.contextMenuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -55,7 +60,7 @@
             this.connections_tool_strip_menu_item});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(800, 36);
+			this.menuStrip1.Size = new System.Drawing.Size(800, 33);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -64,14 +69,14 @@
 			this.connections_tool_strip_menu_item.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connect_menu_item});
 			this.connections_tool_strip_menu_item.Name = "connections_tool_strip_menu_item";
-			this.connections_tool_strip_menu_item.Size = new System.Drawing.Size(126, 32);
+			this.connections_tool_strip_menu_item.Size = new System.Drawing.Size(126, 29);
 			this.connections_tool_strip_menu_item.Tag = "";
 			this.connections_tool_strip_menu_item.Text = "Connections";
 			// 
 			// connect_menu_item
 			// 
 			this.connect_menu_item.Name = "connect_menu_item";
-			this.connect_menu_item.Size = new System.Drawing.Size(270, 34);
+			this.connect_menu_item.Size = new System.Drawing.Size(229, 34);
 			this.connect_menu_item.Text = "Connect to DB";
 			this.connect_menu_item.Click += new System.EventHandler(this.OnConnect);
 			// 
@@ -93,6 +98,7 @@
 			this.data_grid_view.AllowUserToResizeColumns = false;
 			this.data_grid_view.AllowUserToResizeRows = false;
 			this.data_grid_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.data_grid_view.ContextMenuStrip = this.contextMenuStrip1;
 			this.data_grid_view.Location = new System.Drawing.Point(169, 46);
 			this.data_grid_view.MultiSelect = false;
 			this.data_grid_view.Name = "data_grid_view";
@@ -128,6 +134,7 @@
 			// 
 			// id_text_box
 			// 
+			this.id_text_box.Enabled = false;
 			this.id_text_box.Location = new System.Drawing.Point(12, 232);
 			this.id_text_box.Name = "id_text_box";
 			this.id_text_box.Size = new System.Drawing.Size(151, 26);
@@ -200,6 +207,29 @@
 			this.save_button.UseVisualStyleBackColor = true;
 			this.save_button.Click += new System.EventHandler(this.OnSaveButtonClicked);
 			// 
+			// contextMenuStrip1
+			// 
+			this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modifyRecordToolStripMenuItem,
+            this.deleteRecordToolStripMenuItem});
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(241, 101);
+			// 
+			// modifyRecordToolStripMenuItem
+			// 
+			this.modifyRecordToolStripMenuItem.Name = "modifyRecordToolStripMenuItem";
+			this.modifyRecordToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
+			this.modifyRecordToolStripMenuItem.Text = "Modify Record";
+			this.modifyRecordToolStripMenuItem.Click += new System.EventHandler(this.CallModifyDialog);
+			// 
+			// deleteRecordToolStripMenuItem
+			// 
+			this.deleteRecordToolStripMenuItem.Name = "deleteRecordToolStripMenuItem";
+			this.deleteRecordToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
+			this.deleteRecordToolStripMenuItem.Text = "Delete Record";
+			this.deleteRecordToolStripMenuItem.Click += new System.EventHandler(this.OnDeleteRecord);
+			// 
 			// DBConnection
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -225,6 +255,7 @@
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.data_grid_view)).EndInit();
+			this.contextMenuStrip1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -247,6 +278,9 @@
 		private System.Windows.Forms.Button update_button;
 		private System.Windows.Forms.Button delete_button;
 		private System.Windows.Forms.Button save_button;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem modifyRecordToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem deleteRecordToolStripMenuItem;
 	}
 }
 
