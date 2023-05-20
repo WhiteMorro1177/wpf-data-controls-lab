@@ -8,6 +8,7 @@ using Word = Microsoft.Office.Interop.Word;
 using Microsoft.Office.Interop.Word;
 using PdfConfig = iTextSharp.text;
 using PdfElements = iTextSharp.text.pdf;
+using iTextSharp.text;
 
 namespace db_connection
 {
@@ -105,20 +106,56 @@ namespace db_connection
 
 		private void OnSavePdfButtonClicked(object sender, EventArgs e)
 		{
-			PdfConfig.Document doc = new PdfConfig.Document(PdfConfig.PageSize.A4);
-
+			PdfConfig.Document doc = new PdfConfig.Document(PageSize.A4);
 			using (FileStream fs = new FileStream(file_path_textbox.Text, FileMode.Create))
 			{
+				// create cursor for document
 				var pdf_writer = PdfElements.PdfWriter.GetInstance(doc, fs);
+				doc.Open();
 
-				PdfElements.PdfPTable data = new PdfElements.PdfPTable(Data.Columns.Count + 1);
+				// create table
+				PdfElements.PdfPTable data = new PdfElements.PdfPTable(Data.Columns.Count);
 
-				
-				doc.Close();
-				pdf_writer.Close();
+				// fill the table
+				for (int column_index = 0; column_index < Data.Columns.Count; column_index++) // header
+				{
+					data.AddCell(Data.Columns[column_index].ColumnName);
+				}
+
+				foreach (DataRow row in Data.Rows) // data
+				{
+					foreach (var cell in row.ItemArray)
+					{
+						data.AddCell(Translate(cell.ToString()));
+					}
+				}
+				doc.Add(new Phrase("Table"));
+				doc.Add(data);
+
+				try
+				{
+					doc.Close();
+					pdf_writer.Close();
+					MessageBox.Show("Your pdf document sucsessfully saved");
+					Close();
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Saved terminated this error: " + ex.Message);
+				}
 			}
 		}
 
+		private string Translate(string cell_text)
+		{
+			string translated = "";
+            if (!int.TryParse(cell_text, out int result))
+            {
+				cell_text.ToList().ForEach(x => translated += Config.words[x.ToString()]);
+				return translated;
+            }
+			else return cell_text;
+        }
 
 		private string PrepareHTML()
 		{
