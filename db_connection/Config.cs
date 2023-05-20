@@ -34,9 +34,11 @@ namespace db_connection
 		public static string database_name = null;
 
 		public static string last_file_path = null;
+		public static string directory_for_files = "D:\\save_tests\\";
 
-		public static Dictionary<string, string> words = new Dictionary<string, string>()	// this dictionary need for translating russian word
-		{																					// to english -- iTextPdf doesn't support russian :(
+		// this dictionary need for translating russian word to english -- iTextSharp doesn't support russian :(
+		public static Dictionary<string, string> words = new Dictionary<string, string>()
+		{
 			{ "а", "a" }, 
 			{ "б", "b" },
 			{ "в", "v" },

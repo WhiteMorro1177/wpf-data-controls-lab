@@ -1,5 +1,4 @@
-﻿using iTextSharp.text;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace db_connection
 {
@@ -114,6 +114,18 @@ namespace db_connection
 				throw new Exception("Error while executing delete command");
 
 			select_button.PerformClick();
+		}
+
+		private void ExportDiagram(object sender, EventArgs e)
+		{
+			new TempChart(
+				new SqlCommand(
+					"select * from chart", 
+					Config.connection
+				).ExecuteReader()
+			).ShowDialog();
+
+			MessageBox.Show("Your chart saved");
 		}
 	}
 }

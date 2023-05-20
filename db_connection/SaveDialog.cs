@@ -22,7 +22,7 @@ namespace db_connection
 		public SaveDialog(System.Data.DataTable data_to_save)
 		{
 			InitializeComponent();
-			open_file_dialog.InitialDirectory = "D:\\save_tests\\";
+			open_file_dialog.InitialDirectory = Config.directory_for_files;
 			open_file_dialog.FileName = Config.last_file_path ?? "";
 
 			Data = data_to_save;

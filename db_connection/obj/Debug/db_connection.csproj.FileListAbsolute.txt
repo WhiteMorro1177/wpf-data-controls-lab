@@ -57,3 +57,4 @@ C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\bin\Debug\Bouncy
 C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\bin\Debug\itextsharp.dll
 C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\bin\Debug\itextsharp.xml
 C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.ModifyDialog.resources
+C:\Users\jackf\source\repos\wpf-data-controls-lab\db_connection\obj\Debug\db_connection.TempChart.resources
